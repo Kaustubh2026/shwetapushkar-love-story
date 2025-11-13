@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Romantic Wedding Palette */
+    --background: 35 100% 98%; /* Ivory white */
+    --foreground: 340 15% 25%; /* Deep muted rose */
+
+    --card: 0 0% 100%; /* Pure white cards */
+    --card-foreground: 340 15% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 15% 25%;
+
+    /* Blush pink primary */
+    --primary: 350 75% 85%; /* Soft blush pink */
+    --primary-foreground: 340 25% 20%;
+    
+    /* Champagne gold secondary */
+    --secondary: 45 60% 78%; /* Champagne gold */
+    --secondary-foreground: 340 25% 20%;
+
+    /* Soft lavender accent */
+    --accent: 270 50% 88%; /* Soft lavender */
+    --accent-foreground: 340 25% 20%;
+
+    --muted: 35 40% 95%; /* Soft cream */
+    --muted-foreground: 340 10% 45%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 350 30% 92%;
+    --input: 350 30% 92%;
+    --ring: 350 75% 85%;
+
+    --radius: 1rem;
+
+    /* Custom romantic colors */
+    --rose-gold: 15 65% 75%;
+    --champagne: 45 60% 78%;
+    --blush: 350 75% 85%;
+    --lavender: 270 50% 88%;
+    --ivory: 35 100% 98%;
+    
+    /* Gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(350 75% 85%) 0%, hsl(270 50% 88%) 100%);
+    --gradient-elegant: linear-gradient(180deg, hsl(35 100% 98%) 0%, hsl(350 75% 95%) 100%);
+    --gradient-shimmer: linear-gradient(90deg, hsl(45 60% 78%) 0%, hsl(15 65% 75%) 50%, hsl(45 60% 78%) 100%);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-elegant: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(350 75% 85% / 0.15);
+    --shadow-elegant: 0 10px 40px -10px hsl(350 75% 85% / 0.25);
+    --shadow-glow: 0 0 30px hsl(350 75% 85% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .font-script {
+    font-family: 'Great Vibes', cursive;
+  }
+}
+
+@layer utilities {
+  .text-gradient-romantic {
+    background: var(--gradient-romantic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-romantic {
+    background: var(--gradient-romantic);
+  }
+  
+  .bg-gradient-elegant {
+    background: var(--gradient-elegant);
+  }
+  
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .animate-shimmer {
+    background: var(--gradient-shimmer);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  .animate-pulse-soft {
+    animation: pulse-soft 3s ease-in-out infinite;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--secondary));
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
