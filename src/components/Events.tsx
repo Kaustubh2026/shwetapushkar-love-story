@@ -9,7 +9,7 @@ const events = [
     icon: Palette,
     title: "Seemanti pujan",
     date: "Nov 22, 2025",
-    time: "10:00 AM - 1:00 PM",
+    time: "8:00 PM",
     location: "Maa Vaishno Palace, Beed",
     dress: "Traditional Yellow Attire",
     description: "A vibrant celebration with turmeric paste, blessings, and lots of laughter!",
